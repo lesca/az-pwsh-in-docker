@@ -41,4 +41,4 @@ RUN pwsh -Command " \
     Install-WSMan; \
     "
 
-# ENTRYPOINT [ "pwsh", "-c" ]
+ENTRYPOINT [ "pwsh", "-c" ]
