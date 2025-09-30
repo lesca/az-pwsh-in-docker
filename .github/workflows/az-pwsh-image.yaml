@@ -7,7 +7,7 @@ concurrency: deploy-${{ github.workflow }}
 on: 
   push:
     branches:
-      - main
+      - '*'
     paths:
       - docker/az-pwsh/Dockerfile*
       - .github/workflows/az-pwsh-image.yaml
