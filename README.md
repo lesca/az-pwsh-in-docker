@@ -1,6 +1,6 @@
-This repository is aimed to create Azure PowerShell docker images monthly to make it easier to update all the pwsh modules from MS.  
+This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Az CLI, Bicep CLI, etc. The image is updated monthly to keep everything up-to-date.
 
-The images are published in [Docker Hub](https://hub.docker.com/r/lesca/az-pwsh).
+The docker images are published in [Docker Hub](https://hub.docker.com/r/lesca/az-pwsh).
 
 ## How to use the image?
 
