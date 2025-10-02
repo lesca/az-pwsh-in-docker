@@ -1,4 +1,4 @@
-This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Az CLI, Bicep CLI, etc. The image is updated monthly to keep everything up-to-date.
+This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Az CLI, Bicep CLI, .Net runtime, etc. The image is updated monthly to keep everything up-to-date.
 
 The docker images are published in [Docker Hub](https://hub.docker.com/r/lesca/az-pwsh).
 

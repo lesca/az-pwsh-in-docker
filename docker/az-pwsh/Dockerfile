@@ -10,6 +10,7 @@ RUN tdnf makecache \
      git \
      net-tools \
      iputils \
+     nmap-ncat \
      vim \
      wget \
      dnf \
@@ -17,7 +18,7 @@ RUN tdnf makecache \
  && tdnf clean all
 
 # Install .NET SDK and etc.
-RUN dnf install -y dotnet-sdk-9.0 \
+RUN dnf install -y dotnet-runtime-9.0 \
  && dnf clean all
 
 # Install Bicep CLI
