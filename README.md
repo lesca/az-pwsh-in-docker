@@ -33,7 +33,31 @@ docker run -d \
 docker exec -it azure pwsh
 ```
 
-You can then connect to the running container from **VS code**. 
+### Using with VS Code Dev Container
+
+You can then connect to the running container from **VS code** -> `Dev Containers: Attach to Running Container...`
+
+You can also simplify the process by adding a `.devcontianer.json` file in your project folder:
+
+```json
+{
+  "name": "az-pwsh",
+  "image": "lesca/az-pwsh:dev",
+  "workspaceFolder": "/root/scripts",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/scripts,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.powershell",
+        "ms-vscode.azurecli"
+        // "ms-azuretools.vscode-bicep"
+      ]
+    }
+  }
+}
+```
+
+Then, you can open the folder with `Dev Containers: Open Folder in Container...` command.
 
 ## Why do I need this?
 

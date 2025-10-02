@@ -16,6 +16,10 @@ RUN tdnf makecache \
      awk \
  && tdnf clean all
 
+# Install .NET SDK and etc.
+RUN dnf install -y dotnet-sdk-9.0 \
+ && dnf clean all
+
 # Install Bicep CLI
 ARG TARGETARCH
 RUN echo "TARGETARCH: $TARGETARCH" \
