@@ -1,4 +1,4 @@
-This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Az CLI, Bicep CLI, etc. The image is updated monthly to keep everything up-to-date.
+This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Azure CLI, Bicep CLI, .Net runtime, etc. The image is updated monthly to keep everything up-to-date.
 
 The docker images are published in [Docker Hub](https://hub.docker.com/r/lesca/az-pwsh).
 
@@ -33,7 +33,35 @@ docker run -d \
 docker exec -it azure pwsh
 ```
 
-You can then connect to the running container from **VS code**. 
+### Using with VS Code Dev Container
+
+You can then connect to the running container from **VS code** -> `Dev Containers: Attach to Running Container...`
+
+You can also simplify the process by adding a `.devcontianer.json` file in your project folder:
+
+```json
+{
+  "name": "az-pwsh",
+  "image": "lesca/az-pwsh:dev",
+  "workspaceFolder": "/root/azure",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/azure,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.powershell",
+        "ms-vscode.azurecli",
+        "ms-azuretools.vscode-bicep"
+      ],
+      "settings": {
+        "http.proxy": "http://host.docker.internal:8080",
+        "http.proxyStrictSSL": false
+      }
+    }
+  }
+}
+```
+
+Then, you can open the folder with `Dev Containers: Open Folder in Container...` command.
 
 ## Why do I need this?
 
