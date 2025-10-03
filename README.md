@@ -1,4 +1,4 @@
-This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Az CLI, Bicep CLI, .Net runtime, etc. The image is updated monthly to keep everything up-to-date.
+This is an all-in-one docker image includes Azure PowerShell, Graph Powershell SDK, Azure CLI, Bicep CLI, .Net runtime, etc. The image is updated monthly to keep everything up-to-date.
 
 The docker images are published in [Docker Hub](https://hub.docker.com/r/lesca/az-pwsh).
 
@@ -43,15 +43,19 @@ You can also simplify the process by adding a `.devcontianer.json` file in your 
 {
   "name": "az-pwsh",
   "image": "lesca/az-pwsh:dev",
-  "workspaceFolder": "/root/scripts",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/root/scripts,type=bind,consistency=cached",
+  "workspaceFolder": "/root/azure",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/azure,type=bind,consistency=cached",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-vscode.powershell",
-        "ms-vscode.azurecli"
-        // "ms-azuretools.vscode-bicep"
-      ]
+        "ms-vscode.azurecli",
+        "ms-azuretools.vscode-bicep"
+      ],
+      "settings": {
+        "http.proxy": "http://host.docker.internal:8080",
+        "http.proxyStrictSSL": false
+      }
     }
   }
 }
